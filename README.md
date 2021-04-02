@@ -1,24 +1,54 @@
-# README
+### users テーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column          | Type   | Options                  |
+| ----------------| ------ | -------------------------|
+| nickname        | string | null: false              |
+| email           | string | null: false,unique: true |
+| password        | string | null: false              |
+| first_name      | string | null: false              |
+| last_name       | string | null: false              |
+| first_name_kana | string | null: false              |
+| last_name_kana  | string | null: false              |
+| birth_day       | date   | null: false              |
 
-Things you may want to cover:
+### Association
+- has many :items
 
-* Ruby version
+### items テーブル
 
-* System dependencies
+| Column          | Type          | Options                        |
+| ----------------| ------------- | -------------------------------|
+| item-name       | string        | null: false                    |
+| category        | string        | null: false                    |
+| price           | integer       | null: false                    |
+| image           | ActiveStorage |                                |
+| user            | references    | null: false, foreign_key: true |
 
-* Configuration
+### Association
+- belongs_to :user
+- has one :purchase
 
-* Database creation
+### purchases テーブル
 
-* Database initialization
+| Column          | Type          | Options                        |
+| ----------------| ------------- | -------------------------------|
+| purchase-name   | string        | null: false                    |
+| item            | references    | null: false, foreign_key: true |
 
-* How to run the test suite
+### Association
+- belongs to :item
+- has one :ship
 
-* Services (job queues, cache servers, search engines, etc.)
+### ships テーブル
 
-* Deployment instructions
+| Column          | Type          | Options                        |
+| ----------------| ------------- | -------------------------------|
+| purchase        | references    | null: false, foreign_key: true |
+| postal_cord     | integer       | null: false                    |
+| prefecture      | string        | null: false                    |
+| city            | string        | null: false                    |
+| word            | string        | null: false                    |
+| phone_number    | integer       | null: false                    |
 
-* ...
+### Association
+- belongs to :purchase
