@@ -12,8 +12,8 @@
 | birth_day          | date   | null: false              |
 
 ### Association
-- has many :items
-- has many :purchase
+- has_many :items
+- has_many :purchases
 
 ### items テーブル
 
@@ -27,12 +27,11 @@
 | ship_from_area_id   | integer       | null: false                    |
 | shipping_day_id     | integer       | null: false                    |
 | price               | integer       | null: false                    |
-| image               | ActiveStorage |                                |
 | user                | references    | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
-- has one :purchase
+- has_one :purchase
 
 ### purchases テーブル
 
@@ -42,21 +41,21 @@
 | item            | references    | null: false, foreign_key: true |
 
 ### Association
-- belongs to :item
-- belongs to :user
-- has one :ship
+- belongs_to :item
+- belongs_to :user
+- has_one :ship
 
 ### ships テーブル
 
 | Column          | Type          | Options                        |
 | ----------------| ------------- | -------------------------------|
 | purchase        | references    | null: false, foreign_key: true |
-| postal_cord     | integer       | null: false                    |
-| prefecture      | string        | null: false                    |
+| postal_cord     | string        | null: false                    |
+| prefecture      | integer       | null: false                    |
 | city            | string        | null: false                    |
 | word            | string        | null: false                    |
 | building        | string        |                                |
-| phone_number    | integer       | null: false                    |
+| phone_number    | string        | null: false                    |
 
 ### Association
-- belongs to :purchase
+- belongs_to :purchase
