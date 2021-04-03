@@ -25,7 +25,7 @@
 | condition_id        ｜ integer      | null: false                     |
 | delivery_fee_id     | integer       | null: false                    | 
 | ship_from_area_id   | integer       | null: false                    |
-| prefecture          | integer       | null: false                    |
+| prefecture_id          | integer       | null: false                    |
 | price               | integer       | null: false                    |
 | user                | references    | null: false, foreign_key: true |
 
@@ -51,7 +51,7 @@
 | ----------------| ------------- | -------------------------------|
 | purchase        | references    | null: false, foreign_key: true |
 | postal_cord     | string        | null: false                    |
-| prefecture      | integer       | null: false                    |
+| prefecture_id   | integer       | null: false                    |
 | city            | string        | null: false                    |
 | word            | string        | null: false                    |
 | building        | string        |                                |
