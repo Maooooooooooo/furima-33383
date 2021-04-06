@@ -15,6 +15,6 @@ class Item < ApplicationRecord
   validates :delivery_fee_id, numericality: { other_than: 1}
   validates :ship_from_area_id, numericality: { other_than: 1}
   validates :prefecture_id, numericality: { other_than: 1}
-  validates :price,presence: true
+  validates :price,presence: true,inclusion: { in: 300..9999999 }
   validates :image, presence: true
 end
