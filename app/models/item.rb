@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to :delivery_fee
   belongs_to :ship_from_area
   has_one_attached :image
+  has_one :purchase
 
   with_options presence: true do
     validates :item_name
