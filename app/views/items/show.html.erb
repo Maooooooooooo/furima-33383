@@ -16,7 +16,7 @@
     </div>
     <div class="item-price-box">
       <span class="item-price">
-        <%= @item.price %>
+        ¥ <%= @item.price %>
       </span>
       <span class="item-postage">
         <%= @item.delivery_fee.name %>
@@ -31,7 +31,7 @@
           <%= link_to "削除", item_path(@item.id), method: :delete, class:"item-destroy" %>
         <% end %>  
       <% else %>
-        <%= link_to "購入画面に進む", purchases_path,method: :get,class:"item-red-btn"%>
+        <%= link_to "購入画面に進む", item_purchases_path(@item.id),method: :get,class:"item-red-btn"%>
       <% end %>
     <% end %>
 

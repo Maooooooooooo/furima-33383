@@ -1,6 +1,7 @@
 class PurchasesController < ApplicationController
   def index
-    @purchase = PurchaseForm.new(set_params)
+    @purchase_form = PurchaseForm.new(set_params)
+    @purchase = Item.find(params[:item_id])
   end
 
   def create
