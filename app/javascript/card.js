@@ -9,7 +9,7 @@ const pay = () => {
 
     const card = {
       number: formData.get("number"),
-      cvc: formData.get("order[cvc]"),
+      cvc: formData.get("cvc"),
       exp_month: formData.get("exp_month"),
       exp_year: `20${formData.get("exp_year")}`,
     };
@@ -22,12 +22,12 @@ const pay = () => {
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
       }
 
-      document.getElementById("order_number").removeAttribute("name");
-      document.getElementById("order_cvc").removeAttribute("name");
-      document.getElementById("order_exp_month").removeAttribute("name");
-      document.getElementById("order_exp_year").removeAttribute("name");
+      document.getElementById("card-number").removeAttribute("name");
+      document.getElementById("card-cvc").removeAttribute("name");
+      document.getElementById("card-exp-month").removeAttribute("name");
+      document.getElementById("card-exp-year").removeAttribute("name");
 
-      document.getElementById("charge-form").onsubmit();
+      document.getElementById("charge-form").submit();
     });
   });
 };
