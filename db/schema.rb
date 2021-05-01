@@ -59,11 +59,12 @@ ActiveRecord::Schema.define(version: 2021_04_22_105723) do
 
   create_table "ships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "purchase_id"
-    t.integer "postal_cord", null: false
+    t.string "postal_cord", null: false
     t.integer "prefecture_id", null: false
     t.string "city", null: false
     t.string "word", null: false
-    t.integer "phone_number", null: false
+    t.string "building"
+    t.string "phone_number", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["purchase_id"], name: "index_ships_on_purchase_id"
