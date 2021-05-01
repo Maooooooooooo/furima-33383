@@ -1,5 +1,5 @@
 class Ship < ApplicationRecord
-  belongs to :purchase
+  belongs_to :purchase
   with_options presence: true do
     validates :postal_cord
     validates :prefecture_id,numericality: { other_than: 1}
