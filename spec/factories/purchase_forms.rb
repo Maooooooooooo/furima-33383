@@ -6,5 +6,6 @@ FactoryBot.define do
     word              {'テスト1-1'}
     phone_number      {'00000000000'}
     token             {'sk_test_aiueo000000000'}
+    building          {'テスト'}
   end
 end
