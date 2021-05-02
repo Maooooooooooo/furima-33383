@@ -20,6 +20,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    if @item.purchase.present?
+      return redirect_to root_path
+    end
   end
 
   def destroy

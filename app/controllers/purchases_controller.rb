@@ -1,7 +1,7 @@
 class PurchasesController < ApplicationController
   before_action :authenticate_user!,only:[:index]
   before_action :set_purchase, only:[:index,:create]
-  
+
   def index
     @purchase_form = PurchaseForm.new
     if current_user.id == @purchase.user_id || @purchase.purchase.present?
