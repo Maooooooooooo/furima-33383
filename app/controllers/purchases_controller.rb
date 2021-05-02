@@ -15,6 +15,8 @@ class PurchasesController < ApplicationController
       pay_item
       @purchase_form.save
       return redirect_to root_path
+    elsif current_user.id == @purchase.user_id || @purchase.purchase.present?
+      return redirect_to root_path
     else
       render :index
     end
