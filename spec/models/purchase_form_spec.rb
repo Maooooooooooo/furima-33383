@@ -13,6 +13,10 @@ RSpec.describe PurchaseForm, type: :model do
       it 'postal_cord, prefecture_id, city, word, phone_number, tokenがあれば登録できる' do
         expect(@purchase_form).to be_valid
       end
+      it 'buildingが空でも保存ができる' do
+        @purchase_form.building = ''
+        expect(@purchase_form).to be_valid
+      end
     end
     context '商品購入できないとき' do
       it 'postal_cordが空だと登録できない' do
@@ -54,6 +58,16 @@ RSpec.describe PurchaseForm, type: :model do
         @purchase_form.phone_number = '000-0000-0000'
         @purchase_form.valid?
         expect(@purchase_form.errors.full_messages).to include("Phone number is invalid")
+      end
+      it 'user_idが空だと登録できない' do
+        @purchase_form.user_id = nil
+        @purchase_form.valid?
+        expect(@purchase_form.errors.full_messages).to include("User can't be blank")
+      end
+      it 'item_idが空だと登録できない' do
+        @purchase_form.item_id = nil
+        @purchase_form.valid?
+        expect(@purchase_form.errors.full_messages).to include("Item can't be blank")
       end
     end
   end
