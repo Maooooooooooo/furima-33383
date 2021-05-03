@@ -69,6 +69,11 @@ RSpec.describe PurchaseForm, type: :model do
         @purchase_form.valid?
         expect(@purchase_form.errors.full_messages).to include("Item can't be blank")
       end
+      it '電話番号が12桁以上だと登録できない' do
+        @purchase_form.phone_number = '000000000000'
+        @purchase_form.valid?
+        expect(@purchase_form.errors.full_messages).to include("Phone number is invalid")
+      end
     end
   end
 end
